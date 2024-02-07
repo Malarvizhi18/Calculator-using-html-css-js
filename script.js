@@ -5,7 +5,12 @@ let arr = Array.from(buttons)
 arr.forEach(button => {
     button.addEventListener('click',(e)=>{
         if(e.target.innerHTML == '='){
-            string = eval(string);
+            if(eval(string)){
+                string = eval(string);
+            }
+            else {
+            string = "syntax error";
+            }
             input.value = string;
         }
         else if(e.target.innerHTML == "AC"){
@@ -14,7 +19,7 @@ arr.forEach(button => {
         }
         else if(e.target.innerHTML == 'DEL'){
             string = string.substring(0,string.length-1)
-            input.value = string
+            input.value = string;
         }
         else{
             string+= e.target.innerHTML;
